@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  # Staging (Port 5000)
+  staging:
+    build: .
+    container_name: aetherflow-staging
+    ports:
+      - "5000:3001"
+    environment:
+      - NODE_ENV=staging
+      - PORT=3001
+
+  # Production (Port 8000)
+  production:
+    build: .
+    container_name: aetherflow-production
+    ports:
+      - "8000:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001

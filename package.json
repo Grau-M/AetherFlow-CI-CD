@@ -3,22 +3,30 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Grau-M/AetherFlow-CI-CD.git"
+  "scripts": {
+    "test": "jest",
+    "test:ci": "start-server-and-test start http://localhost:3001/health test",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Grau-M/AetherFlow-CI-CD/issues"
-  },
-  "homepage": "https://github.com/Grau-M/AetherFlow-CI-CD#readme",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "node-fetch": "^2.6.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
   }
 }
